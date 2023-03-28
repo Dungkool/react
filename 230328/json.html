@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>json</h1>
+  </body>
+</html>
+<script>
+  let person = {name: "홍길동", age: 23, kor: 90, eng: 90, mat: 100};
+
+  // 두 가지 모두 출력 가능
+  console.log(person.name, person.age, person.kor, person.eng, person.mat);
+  console.log(
+    person["name"],
+    person["age"],
+    person["kor"],
+    person["eng"],
+    person["mat"]
+  );
+
+  person.total = person.kor + person.eng + person.mat;
+  person.avg = person.total / 3;
+
+  console.log(
+    `${person.name}의 총점은 ${person.total} 평균은 ${person.avg}입니다.`
+  );
+</script>
