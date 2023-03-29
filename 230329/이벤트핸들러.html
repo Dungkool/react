@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" onclick="goDisplay()">함수선언식</button><br />
+    <button type="button" id="btnPress">함수표현식</button><br />
+    <button type="button" id="btnPress2">화살표 함수</button><br />
+    <!-- 함수 표현식 -->
+
+    <!-- 
+    <input type = "submit"> 무조건 서버로 정보를 전송한다. 위의 button 태그와 동일
+    
+    <input type = "button"> 이벤트만 발생시킨다. 
+    <button type = "button">누르세요</button>  현업에서는 버튼 태그를 많이 사용-->
+  </body>
+</html>
+<script>
+  function goDisplay() {
+    alert("button 눌림");
+  }
+
+  // 초창기에는 script를 헤더에 놓았음
+  // 버튼 객체는 있는데 함수를 나중에 붙인다.
+  window.onload = function () {
+    // window가 모두 로드된 이후 자바스크립트 불러옴
+    document.getElementById("btnPress").addEventListener("click", function () {
+      alert("두번째 버튼");
+    });
+
+    document.getElementById("btnPress2").addEventListener("click", () => {
+      alert("세번째 버튼");
+    });
+  };
+</script>

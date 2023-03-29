@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let s = [
+    {name: "홍길동", kor: 90, eng: 90, mat: 100},
+    {name: "임꺽정", kor: 90, eng: 90, mat: 90},
+    {name: "장길산", kor: 80, eng: 80, mat: 100},
+    {name: "강감찬", kor: 90, eng: 90, mat: 100},
+  ];
+
+  // 총점, 평균
+  s.map((item) => {
+    item.total = item.kor + item.mat + item.eng;
+    item.avg = item.total / 3;
+    return item;
+  }).forEach((item) => {
+    console.log(`${item.name} ${item.total} ${item.avg}`);
+  });
+</script>

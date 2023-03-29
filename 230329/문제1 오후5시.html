@@ -1,0 +1,36 @@
+<!-- 
+    문제1) 사각형 면적 구하기
+    사각형의 가로 세로를 입력받아 면적을 구하여 출력하세요.
+
+    문제2) 이름, 일주일 간 근무시간, 시간다 급여액을 입력받아 주급을 계산하세요.
+    단, 20시간 초과 근무 시 초과근무에 대해서는 초과수당을 지급하세요.
+    초과수당은 시간당급여액의 50%입니다.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  width = prompt("가로 길이를 입력하세요.", "");
+  height = prompt("세로 길이를 입력하세요.", "");
+  let rectangle = [{width, height}];
+
+  for (item of rectangle) {
+    item["surface"] = item["width"] * item["height"];
+  }
+  for (item of rectangle) {
+    console.log(
+      `가로 : ${item["width"]} 세로 : ${item["height"]} 면적 :${item["surface"]}`
+    );
+  }
+
+  
+</script>

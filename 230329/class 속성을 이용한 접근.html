@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="title1" class="blue">제목줄1</h1>
+    <h1 id="title2" class="blue">제목줄2</h1>
+    <h1 id="title3" class="blue">제목줄3</h1>
+  </body>
+</html>
+<script>
+  var blue = document.getElementsByClassName("blue");
+  var titles = ["첫번째 제목", "두번째 제목", "세번째 제목"];
+  var colors = ["#0000FF", "0000aa", "#000088"];
+
+  for (i = 0; i < blue.length; i++) {
+    blue[i].innerHTML = titles[i];
+    blue[i].style.color = colors[i]; // 스타일도 변경함
+  }
+</script>

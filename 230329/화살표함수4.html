@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>화살표함수(이차원배열)</h1>
+  </body>
+</html>
+<script>
+  let a = function () {
+    console.log("Hello");
+  };
+  let result = a();
+  console.log(result); // undefined
+
+  let nums = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+  //배열의 요소, index JAVA Script가 제공하는 람다는 모두 이 구조
+  // nums.map(() => {});
+  nums.map((x, i) => {
+    console.log(i, x);
+    return x;
+  });
+
+  // //첫 번째는 요소값, 두 번째는 인덱스의 구조 / 2차원 배열
+  nums = [
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90],
+  ];
+  nums.map((x, i) => {
+    console.log(i, x);
+    return x;
+  });
+
+  nums.map((x, i) => {
+    //첫 번째는 요소값, 두 번째는 인덱스의 구조 / 2차원 배열
+    x.map((y, j) => {
+      console.log(j, y);
+      return y;
+    });
+    return x;
+  });
+</script>
