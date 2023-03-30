@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <body id="body">
+    <button type="button" id="btn1" style="background-color: pink">
+      배경색
+    </button>
+    <button type="button" id="btn2" style="background-color: skyblue">
+      배경색
+    </button>
+    <button type="button" id="btn3" style="background-color: purple">
+      배경색
+    </button>
+  </body>
+</html>
+<script>
+  $(document).ready(() => {
+    /*   $("#btn1").click(() => {
+      $("body").css("background-color", $("#btn1").css("background-color"));
+    });
+
+    $("#btn2").click(() => {
+      $("body").css("background-color", $("#btn2").css("background-color"));
+    });
+
+    $("#btn3").click(() => {
+      $("body").css("background-color", $("#btn3").css("background-color"));
+    }); */
+
+    $("button").click((btn) => {
+      console.log(btn);
+      $("body").css("background-color", btn.target.style.backgroundColor);
+      /*       $("body").css(
+        "background-color",
+        $("#" + btn.target.id).css("background-color")
+      ); */
+    });
+  });
+</script>

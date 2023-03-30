@@ -1,0 +1,64 @@
+<!-- 
+    문제1) 사각형 면적 구하기
+    사각형의 가로 세로를 입력받아 면적을 구하여 출력하세요.
+
+    문제2) 이름, 일주일 간 근무시간, 시간당 급여액을 입력받아 주급을 계산하세요.
+    단, 20시간 초과 근무 시 초과근무에 대해서는 초과수당을 지급하세요.
+    초과수당은 시간당급여액의 50%입니다.
+    근무시간 : 30 <- input 태그
+    시간당급여액 : 20000 <- input 태그
+    기본급 : 600000 초과수당 : 10000 합 : 700000 <- span태그
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <body>
+    이름 : <input type="text" id="name" /><br />
+    근무시간 : <input type="text" id="worktime" /><br />
+    시급 : <input type="text" id="perpay" /><br />
+
+    <button type="button" id="btnConfirm">확인</button>
+    <button type="button" id="btnClear">새로입력</button><br />
+
+    <div id="result"></div>
+  </body>
+</html>
+<script>
+  $(document).ready(() => {
+    $("#btnConfirm").click(() => {
+      name = parseInt($("#name").val());
+      worktime = parseInt($("#worktime").val());
+      perpay = parseInt($("#perpay").val());
+
+      base_pay = worktime * perpay;
+      over_pay = 0;
+
+      if (worktime > 20) {
+        over_pay = (worktime - 20) * perpay * 0.5;
+      }
+
+      temp = `${name}님의 기본급${base_pay} 연장수당${over_pay} 총액 ${
+        base_pay + over_pay
+      }`;
+      $("#result").html(temp);
+    });
+  });
+
+  $("#btnClear").click(() => {
+    $("input").val("");
+  });
+
+  /* function btnClear() {
+    document.getElementById("name").value = "";
+    document.getElementById("worktime").value = "";
+    document.getElementById("perpay").value = "";
+    document.getElementById("result").value = "";
+  } */
+</script>

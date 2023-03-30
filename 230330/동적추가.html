@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" id="btnAdd">추가</button>&nbsp;&nbsp;
+    <button type="button" id="btnDel">삭제</button>
+    <table style="width: 80%; margin: auto; border: blue 1px solid">
+      <colgroup>
+        <!--열별로 스타일 지정-->
+        <col style="width: 10%" />
+        <col style="width: 80%" />
+        <col style="width: 10%" />
+      </colgroup>
+      <thead>
+        <!--접근성. 테이블 읽어주는 내용.-->
+        <th>품목</th>
+        <th>개수</th>
+        <th>단가</th>
+      </thead>
+      <tbody id="body">
+        <tr>
+          <td><input type="text" name="product_name" />흑임자비비빅</td>
+          <td><input type="text" name="product_count" />100</td>
+          <td><input type="text" name="product_price" />800</td>
+        </tr>
+        <tr>
+          <td>망고젤리</td>
+          <td>200</td>
+          <td>500</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+<script>
+  let data = [
+    {name: "새우깡", count: 2, price: 2000},
+    {name: "꿀꽈배기", count: 2, price: 2000},
+    {name: "자갈치", count: 2, price: 2000},
+    {name: "맛동산", count: 2, price: 2000},
+    {name: "에이스", count: 2, price: 2000},
+  ];
+
+
+  window.onload = () => {
+    load();
+  };
+
+  function load() {
+    tbody = document.getElementById("tbody");
+    console.log(tbody.rows.length); // 데이터 개수 확인
+
+    for (i in data) {
+      row = tbody.insertRow(tbody.rows.length); // 맨 아래에 새로운 행 추가
+      cell1 = row.insertCell(0); // 새로운 셀 추가
+      cell2 = row.insertCell(1); // 새로운 셀 추가
+      cell3 = row.insertCell(2); // 새로운 셀 추가
+      cell1.innerHTML = data[i].name;
+      cell2.innerHTML = data[i].count;
+      cell3.innerHTML = data[i].price;
+    }
+  }
+</script>

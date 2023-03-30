@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button
+      type="button"
+      style="background-color: aqua"
+      onclick="changeBackground(this)"
+    >
+      배경색
+    </button>
+    <button
+      type="button"
+      style="background-color: violet"
+      onclick="changeBackground(this)"
+    >
+      배경색
+    </button>
+    <button
+      type="button"
+      style="background-color: skyblue"
+      onclick="changeBackground(this)"
+    >
+      배경색
+    </button>
+  </body>
+</html>
+<script>
+  function changeBackground(me) {
+    // event - JAVA Script가 제공하는 내장객체, 발생한 이벤트에 대한 모든 정보를 갖고 있다.
+    body = document.getElementsByTagName("body");
+    body[0].style.backgroundColor = me.style.backgroundColor;
+  }
+</script>

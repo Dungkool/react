@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" id="btnAdd">추가</button><br />
+    <button type="button" id="btnDel">삭제</button><br />
+    <table style="width: 80%; margin: auto; border: blue 1px solid">
+      <colgroup>
+        <!--열별로 스타일 지정-->
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+      </colgroup>
+      <thead>
+        <!--접근성. 테이블 읽어주는 내용.-->
+        <th>품목</th>
+        <th>개수</th>
+        <th>단가</th>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+          <td><input type="text" name="product_name" /></td>
+          <td><input type="text" name="product_count" /></td>
+          <td><input type="text" name="product_price" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+<script>
+  window.onload = () => {
+    document.getElementById("btnAdd").addEventListener("click", goAdd);
+    document.getElementById("btnDel").addEventListener("click", goDel);
+  };
+
+  function goAdd() {
+    let tbody = document.getElementById("tbody");
+    console.log(tbody.rows.length); // 데이터 개수 확인
+    let row = tbody.insertRow(tbody.rows.length);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    cell1.innerHTML = '<input type="text" name="product_name">';
+    cell2.innerHTML = '<input type="text" name="product_count">';
+    cell3.innerHTML = '<input type="text" name="product_price">';
+  }
+
+  function goDel() {
+    tbody = document.getElementById("tbody");
+    if (tbody.rows.length > 1) tbody.deleteRow(tbody.rows.length - 1);
+    else alert("더 이상 삭제가 불가능합니다.");
+  }
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" onkeypress="inNumber()" /><br />
+    <input type="text" oninput="goInput(this)" /><br />
+  </body>
+</html>
+<script>
+  function inNumber() {
+    // event - 발생했던 모든 사건들(이벤트)에 대한 정보를 가지고 있는 자바 스크립트 내장 객체
+    if (event.keyCode < 48 || event.keyCode > 57) {
+      event.returnValue = false;
+    }
+  }
+
+  function goInput(me) {
+    // replace(/패턴/) 패턴은 /~/ 사이에 넣는다.
+    // [0-9] [] - 로 구성되어진
+    // 0-9를 제외한 문자를 없애기
+    // [^0-9] : 0~9를 제외한 문자를 찾아서 지우기
+    // ^[0-9] : 0~9로 시작하는 문자
+    //  g 옵션 : global의 의미 - 전부 다 찾아서 공백으로 변경
+    me.value = me.value.replace(/[^0 - 9]/g, "");
+  }
+</script>

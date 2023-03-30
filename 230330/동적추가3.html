@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="product" /><br />
+    <button type="button" id="btnAdd">추가</button>
+    <button type="button" id="btnDel">삭제</button>
+
+    <ul id="coffee">
+      <li>아이스 아메리카노</li>
+    </ul>
+  </body>
+</html>
+<script>
+  window.onload = () => {
+    document.getElementById("btnAdd").addEventListener("click", () => {
+      // 1. ul태그에 대한 객체를 먼저 가져온다.
+      let coffee = document.getElementById("coffee");
+      // 2. li태그 객체를 생성한다.
+      let child = document.getElementById("li");
+      // 3. ul태그에 덧붙인다.
+      child.innerHTML = document.getElementById("product").value;
+      coffee.appendChild(child);
+    });
+
+    document.getElementById("btnDel").addEventListener("click", () => {
+      let coffee = document.getElementById("coffee");
+      if (coffee.children.length > 1) {
+        coffee.removeChild(coffee.lastChild);
+      }
+    });
+  };
+</script>
