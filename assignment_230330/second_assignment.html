@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    이름 : <input type="text" id="name" /><br />
+    국어 : <input type="text" id="kor" /><br />
+    영어 : <input type="text" id="eng" /><br />
+    수학 : <input type="text" id="math" /><br />
+
+    <button type="button" onclick="cal()">결과확인(java script)</button>
+    <button type="button" id="btnConfirm">결과확인(jquery)</button>
+
+    <div id="result"></div>
+  </body>
+</html>
+<script>
+  // jquery
+  $(document).ready(() => {
+    $("#btnConfirm").click(() => {
+      name = $("#name").val();
+      kor = parseInt($("#kor").val());
+      eng = parseInt($("#eng").val());
+      math = parseInt($("#math").val());
+      if (
+        kor > 100 ||
+        kor < 0 ||
+        eng > 100 ||
+        eng < 0 ||
+        math > 100 ||
+        math < 0
+      ) {
+        alert("다시 입력하세요.");
+        $("input").val("");
+        return;
+      }
+      total = kor + eng + math;
+      avg = total / 3;
+
+      temp = `${name}의 총점은 ${total}이고 평균은 ${avg}입니다.`;
+
+      $("#result").html(temp);
+    });
+  });
+
+  // java script
+  function cal() {
+    name = document.getElementById("name").value;
+    kor = document.getElementById("kor").value;
+    eng = document.getElementById("eng").value;
+    math = document.getElementById("math").value;
+
+    kor = parseInt(kor);
+    eng = parseInt(eng);
+    math = parseInt(math);
+    if (
+      kor > 100 ||
+      kor < 0 ||
+      eng > 100 ||
+      eng < 0 ||
+      math > 100 ||
+      math < 0
+    ) {
+      alert("다시 입력하세요.");
+      $("input").val("");
+      return false;
+    }
+
+    total = kor + eng + math;
+    avg = total / 3;
+
+    temp = `${name}의 총점은 ${total}이고 평균은 ${avg}입니다.`;
+    document.getElementById("result").innerHTML = temp;
+  }
+</script>
