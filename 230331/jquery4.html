@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <body>
+    <form action="">
+      <input type="hidden" name-="seq" id="seq" /><br />
+      이름 : <input type="text" id="username" name="username" /><br />
+      이름2 : <input type="text" id="username2" name="username" /><br />
+
+      좋아하는거<br />
+      <input type="checkbox" name="interest" value="1" />자바<br />
+      <input type="checkbox" name="interest" value="2" />c<br />
+      <input type="checkbox" name="interest" value="3" />파이썬<br />
+      <input type="checkbox" name="interest" value="4" />빅데이터<br />
+      <input type="checkbox" name="interest" value="5" />C#.net<br />
+      <input type="checkbox" name="interest" value="6" />웹프로그래밍<br />
+      <input type="checkbox" name="interest" value="7" />php<br />
+
+      <button></button>
+      <button></button>
+
+      <button type="button" id="btnRead">데이터 읽기</button>
+    </form>
+  </body>
+</html>
+<script>
+  $(document).ready(() => {
+    $("input[type=hidden][name=seq]").val("777");
+    $("input[type=text][name=username]").val("홍길동");
+
+    $("#seq").val(9999);
+    $("#username").val("임꺽정");
+    $("input[type=checkbox][name=interest]").eq(1).prop("checked",true);
+    $("input[type=checkbox][name=interest]").eq(3).prop("checked",true);
+
+    $("#btnRead").click(() => {
+      console.log($("input[type=hidden][name=seq]").val());
+      console.log($("input[type=text][name=username]").val());
+    });
+
+
+    //선택한 항목 가져올 떄는
+    let result ="";
+    $("input[type=checkbox[name = interest]:checked").each(function(){
+    result += $(this).val()="";});
+  });
+
+  $("#btnSelectAll").click(()=> {
+    $("input[type=checkbox][name=interest]").prop("checked", true);
+  })
+
+
+  $("#btnReleaseAll").click(()=> {
+    $("input[type=checkbox][name=interest]").prop("checked", false);
+  })
+</script>

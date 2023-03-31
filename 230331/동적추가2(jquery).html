@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <body>
+    <button type="button" id="btnAdd">추가</button>&nbsp;&nbsp;
+    <button type="button" id="btnDel">삭제</button>&nbsp;&nbsp;
+    <table
+      id="mytable"
+      style="width: 80%; margin: auto; border: blue 1px solid"
+    >
+      <!--열별로 스타일 지정하기 위한 목적-->
+      <colgroup>
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+        <col style="width: 33%" />
+      </colgroup>
+      <thead>
+        <th>품목</th>
+        <th>개수</th>
+        <th>단가</th>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+          <td><input type="text" name="product_name" /></td>
+          <td><input type="text" name="product_count" /></td>
+          <td><input type="text" name="product_price" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+<script>
+  $(document).ready(() => {
+    $("#btnAdd").click(() => {
+      let temp = "<tr>";
+      temp += "<td><input type = 'text' name = 'product_name'></td>";
+      temp += "<td><input type = 'text' name = 'product_count'></td>";
+      temp += "<td><input type = 'text' name = 'product_price'></td>";
+      temp += "</tr>";
+
+      temp = `<tr>
+      <td><input type = 'text' name = 'product_name'></td>
+      <td><input type = 'text' name = 'product_count'></td>
+      <td><input type = 'text' name = 'product_price'></td>
+      </tr>`;
+
+      $("#mytable > tbody:last").append(temp);
+    });
+
+    $("#btnDel").click(() => {
+      if ($("#mytable > tbody > tr").length > 1) {
+        $("#mytable > tbody > tr:last").remove();
+      }
+    });
+  });
+</script>
