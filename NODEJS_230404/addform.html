@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+        form에 있는 중요 속성
+        method : 서버로 정보를 보내는 방법을 기술한다. get, post 등
+        action : 서버에서 어떤 url이 정보를 받아서 처리할지를 지정해야 한다. app.use(url, )이 존재해야 한다. 
+        이 속성을 생략하면 자신의 url을 다시 호출한다. method를 생략하면 get방식이다.
+    -->
+    <form action="/add">
+      x : <input type="number" name="x" /><br />
+      y : <input type="number" name="y" /><br />
+
+      <input type="submit" value="더하기" />
+    </form>
+  </body>
+</html>
