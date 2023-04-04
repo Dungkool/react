@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="myform" action="/confirm" method="get">
+      이름 : <input type="text" name="username" id="" /><br />
+      국어 : <input type="text" name="kor" id="" /><br />
+      영어 : <input type="text" name="eng" id="" /><br />
+      수학 : <input type="text" name="mat" id="" /><br />
+
+      <button type="button" id="btnConfirm">결과확인</button>&nbsp;&nbsp;
+    </form>
+  </body>
+</html>
+<script>
+  window.onload = () => {
+    let btnConfirm = document.getElementById("btnConfirm");
+
+    btnConfirm.addEventListener("click", () => {
+      //form에 이름을 안 줘도, document의 0번째 form 이란 뜻
+      document.forms[0].submit();
+    });
+  };
+</script>
