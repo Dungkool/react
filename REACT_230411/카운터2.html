@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카운터2</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const {useState} = React;
+
+      // 함수 기반 컴포넌트는 위치 상관 없음
+      // Class는 ReactDOM.render 위쪽에 있어야 함
+      class Mycomponent1 extends React.Component {
+        render() {
+          return (
+            <div>
+              <h1>클래스 기반</h1>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <div>
+          <h1>카운터</h1>
+          <Counter />
+          <Counter />
+          <Counter />
+          <Counter />
+          <Counter />
+          <Mycomponent1 />
+        </div>,
+        document.getElementById("root") // 전체 구조의 뿌리가 되는 태그
+      );
+
+      function Counter() {
+        // 변수를 state라는 공간에 저장한다.
+        // 함수에 변수를 만들면 함수 종료하면 변수가 없어진다.
+        // 유지를 위해서 상태 정보를 state라는 공간에 저장
+        const [number, setNumber] = useState(0);
+        // 변수, 변수의 값을 바꾸는 함수 = useState(변수 초기값)
+        const onIncrease = () => {
+          setNumber(number + 1); // 반드시 set 함수에 의해서 값이 바뀌어야 함, react가 화면에 랜더링 작업을 진행한다.
+        };
+
+        const onDecrease = () => {
+          setNumber(number - 1);
+        };
+
+        return (
+          <div>
+            <h3>{number}</h3>
+            <button type="button" onClick={onIncrease}>
+              +
+            </button>
+            <button type="button" onClick={onDecrease}>
+              -
+            </button>
+          </div>
+        );
+      }
+    </script>
+  </body>
+</html>
