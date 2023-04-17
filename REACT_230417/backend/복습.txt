@@ -1,0 +1,32 @@
+1.모던스크립트 - 딥다이브
+json, ajax 기술을 지원하는 모던스크립트가 promise, async, await
+
+Promise(())
+.then(()=>{
+    Promise(()=>{})
+    .then(()=>{
+
+    })
+})
+
+async function() callFunction{
+
+}
+
+let resultsd = await callFunction();
+
+함수 만들 때 주의점
+1. 한 번에 한가지 기능만
+2. 입력과 출력을 명확하게 입력 - 매개변수, 출력-반환값
+3. 함수 안에서 if문 쓸 때 (오류처리할 때) 가급적 if-else 쓰지말자
+    if(error1){
+        에러 처리
+        return;
+    }
+
+    if(error2){
+        에러 처리
+        return;
+    }
+
+    정상 처리

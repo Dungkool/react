@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+
+  <%-include("../layout/header.ejs")%>
+
+<div class="container mt-3">
+  <h1 style="margin-top: 80px;">로그온</h1>
+
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="아이디" id="userid" name="userid">
+  </div>
+
+  <div class="input-group mb-3">
+    <input type="password" class="form-control" placeholder="패스워드" id="password" name="password">
+  </div>
+  
+  	<div class="container" style="text-align:right">
+	 
+	    <div class="btn-group">
+	    
+        <button type="button" class="btn btn-primary" id ="btnLogon">로그온</button>&nbsp;&nbsp;
+      
+	     <button type="button" class="btn btn-primary" id="btnCancel">취소</button>&nbsp;&nbsp;
+	    </div>
+    </div>
+</form>	
+</div>
+
+</body>
+</html>
+
+<script>
+$(document).ready(()=>{
+  $("#btnLogon").click(goLogon);  // goLogon() - 함수를 실행한 결과가 전달
+  $("#btnCancel").click(goCancel); // goLogon - 함수의 주소만 전달한다.
+})
+
+function goLogon(){
+  $.ajax(
+    {
+      url:"/member/login",
+      data:{userid:$("#userid").val(), password:$("#password").val()},
+      dataType : "json",
+      method : "post"
+    })
+    .done((res)=>{
+      console.log(res.result);
+      if(res.result=="success"){
+        alert(res.msg);
+        location.href = "/"; //첫번째 페이지로
+      }else{
+        alert(res.msg);
+      }
+    })
+    .fail((res,status,error)=>{
+      console.log(status)
+    })
+}
+
+
+
+
+function goWrite()
+{
+	var frm = document.form;
+	frm.action="/board/save";
+	frm.submit();
+}
+
+function goModify()
+{
+	var frm = document.form;
+	frm.action="/board/modify_save";
+	frm.submit();
+}
+
+function goCancel()
+{
+  var frm = document.form;
+	frm.action="/board/list";
+	frm.submit();
+}
+
+
+
+
+
+
+///// 팀원끼리 한거
+/* $(document).ready(()=>{
+     $("#btnLogin").click(() => {
+      let userid = $("#userid").val();
+      let password = $("#password").val();
+       $.ajax({
+         url: "/member/logincheck",
+         data: { userid: userid, password:password },
+         method: "post",
+         dataType: "json"
+       }).then((result) => {
+         if (result.result == 'success') {
+           alert("로그인 성공입니다.");
+         } else {
+           alert("로그인 실패입니다.");
+         }
+       }).catch((res, status, error) => {
+         console.log(status);
+       });
+     });
+  }); */
+///// 팀원끼리 한거 끝
+</script>
+
+

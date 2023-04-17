@@ -1,0 +1,34 @@
+const { connect } = require("./routes")
+
+1. 기획문서 -> 기획자 업무분석서, 기획서
+2. 테이블 설계 -> ERWin(툴) 등을 통해서 테이블 설계
+3. 프론트 엔드와 백엔드 간에 데이터 주고 받는 문서(API 설계)
+   요청정보
+   응답
+4. 웹디자이너가 화면 디자인을 하면 => html 문서로 바꿔준다.(코더 or 퍼블리서) : 재택 가능
+5. 백엔드(postman으로 테스트 하면서 개발) / 프론트 엔드(json 데이터 만들어서) 각자 개발
+jsonserver -> json 파일을 백엔드 서버처럼 사용 가능
+
+6. 하루의 마감은 반드시 보고서를 문서로 작성해서 메일 보내고 보관하기 무조건 문서로(사수 못 믿음)
+
+Promise -> 동기를 비동기로 쉽게 만들 수 있는 객체
+async -> Promise를 쉽게 만들게 하려고
+await -> 둘을 적절히 활용하면 비동기를 동기처럼 사용하게 할 수 있다.
+
+connection.execute(sql, [], ()=>{
+   connection.execute(sql,[],()=>{
+      connection.execute(sql,[],()=>{
+         resizeBy.json({result:"success"});
+         return;
+      })
+      res.json({result:"fail"})
+      return;
+   })
+res.json({result:"fail"});
+})
+
+let result = await connection.execute(sql, []);
+if(result == undefined){
+   res.json({result:"fail"})
+   return
+}
